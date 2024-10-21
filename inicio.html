@@ -25,18 +25,18 @@
             background: linear-gradient(90deg, #FFC107, #FF9800);
             color: black;
             font-weight: bold;
-            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; 
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 3px 5px 5px black;
         }
 
         .btn-custom:hover {
             background-color: #FF9800;
-            transform: scale(1.1); 
-            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); 
+            transform: scale(1.1);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
         }
 
         .btn-custom:active {
-            transform: scale(0.95); 
+            transform: scale(0.95);
         }
 
         .logo {
@@ -58,7 +58,7 @@
         }
 
         .btn-close:focus {
-            box-shadow: none; 
+            box-shadow: none;
         }
 
         .modal-content .btn-custom {
@@ -68,12 +68,12 @@
 
         .modal-content .btn-custom:hover {
             background-color: #FF9800;
-            transform: scale(1.1); 
-            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); 
+            transform: scale(1.1);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
         }
 
         .modal-content .btn-custom:active {
-            transform: scale(0.95); 
+            transform: scale(0.95);
         }
     </style>
 </head>
@@ -112,72 +112,74 @@
                             </div>
                             <button type="submit" class="btn btn-custom">Iniciar Sesión</button>
                         </form>
-                        <br>
-                        <!-- Enlace para Olvidé mi contraseña -->
-                        <p class="text-center">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">¿Olvidaste tu contraseña?</a>
-                        </p>
+
+                        <!-- Link para recuperar la contraseña -->
+                        <div class="mt-3">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#resetPasswordModal">¿Olvidaste tu contraseña?</a>
+                        </div>
                     </div>
+
+                    <script>
+                        document.getElementById("loginForm").addEventListener("submit", function (event) {
+                            event.preventDefault();
+                            const email = document.getElementById("email").value;
+                            const password = document.getElementById("password").value;
+                            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                            
+                            if (!emailRegex.test(email)) {
+                                alert("Por favor, ingresa un correo electrónico válido.");
+                            } else if (password.length < 6) {
+                                alert("La contraseña debe tener al menos 6 caracteres.");
+                            } else {
+                                window.location.href = "pantallainicial.html";
+                            }
+                        });
+                    </script>
                 </div>
             </div>
         </div>
 
-        <!-- Modal Olvidé mi Contraseña -->
-        <div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
+        <!-- Modal para Restablecer Contraseña -->
+        <div class="modal fade" id="resetPasswordModal" tabindex="-1" aria-labelledby="resetPasswordModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content" style="box-shadow: 5px 7px 5px black;">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="forgotPasswordModalLabel">Restablecer Contraseña</h5>
+                        <h5 class="modal-title" id="resetPasswordModalLabel">Restablecer Contraseña</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form id="forgotPasswordForm">
+                        <form id="resetPasswordForm">
                             <div class="mb-3">
                                 <label for="resetEmail" class="form-label">Correo electrónico</label>
-                                <input type="email" class="form-control" id="resetEmail" placeholder="Ingresa tu correo para restablecer la contraseña" required>
+                                <input type="email" class="form-control" id="resetEmail" placeholder="nombre@ejemplo.com" required>
                             </div>
-                            <button type="submit" class="btn btn-custom">Enviar código de restablecimiento</button>
+                            <button type="submit" class="btn btn-custom">Enviar Código</button>
                         </form>
                     </div>
+
+                    <script>
+                        document.getElementById("resetPasswordForm").addEventListener("submit", function (event) {
+                            event.preventDefault();
+                            const resetEmail = document.getElementById("resetEmail").value;
+                            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                            
+                            if (!emailRegex.test(resetEmail)) {
+                                alert("Por favor, ingresa un correo electrónico válido.");
+                            } else {
+                                // Aquí iría la lógica para enviar el código de restablecimiento al correo
+                                alert("Se ha enviado un código de verificación a " + resetEmail);
+                                // Redirigir a la página de verificación o confirmación
+                                window.location.href = "verificarcodigo.html";
+                            }
+                        });
+                    </script>
                 </div>
             </div>
         </div>
+
     </div>
 
-    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <script>
-        // Script para manejar el envío de formularios y validación
-        document.getElementById("loginForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-            if (!emailRegex.test(email)) {
-                alert("Por favor, ingresa un correo electrónico válido.");
-            } else if (password.length < 6) {
-                alert("La contraseña debe tener al menos 6 caracteres.");
-            } else {
-                window.location.href = "pantallainicial.html";
-            }
-        });
-
-        // Script para el restablecimiento de contraseña
-        document.getElementById("forgotPasswordForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            const resetEmail = document.getElementById("resetEmail").value;
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-            if (!emailRegex.test(resetEmail)) {
-                alert("Por favor, ingresa un correo electrónico válido.");
-            } else {
-                alert("El código de restablecimiento ha sido enviado a tu correo.");
-                // Aquí va la lógica para enviar el código de restablecimiento al correo
-            }
-        });
-    </script>
 </body>
 
 </html>
