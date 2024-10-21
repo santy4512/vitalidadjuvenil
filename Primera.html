@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrarse</title>
+  <link rel="stylesheet" href="primera1.css">
+  <link rel="stylesheet" href="primera.css">
+  <script src="primera.js"></script>
+  <style>
+    body {
+      background-image: url(img1.jpg);
+      background-size: cover;
+      color: aliceblue;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-md-12" style="margin-left: 25%; margin-right: 40%; margin-top: 4%;">
+        <h1>Llena la siguiente información y registrate:</h1>
+      </div>
+    </div>
+
+
+    <div class="row" id="step1">
+      <div class="col-md-6 bg-dark py-5"
+        style="border-radius: 10px; margin-left: 25%; margin-right: 40%; margin-top: 5%;">
+        <form class="row g-3" id="registerForm">
+          <div class="col-md-4">
+            <label for="nombre" class="form-label">Nombre(s):</label>
+            <input type="text" class="form-control" id="nombre" placeholder="Escribe acá..." required>
+          </div>
+          <div class="col-md-4">
+            <label for="apellidos" class="form-label">Apellidos:</label>
+            <input type="text" class="form-control" id="apellidos" placeholder="Escribe acá..." required>
+          </div>
+          <div class="col-md-4">
+            <label for="usuario" class="form-label">Usuario:</label>
+            <div class="input-group">
+              <span class="input-group-text" id="inputGroupPrepend2">@</span>
+              <input type="text" class="form-control" id="usuario" required>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="pais" class="form-label">País:</label>
+            <select class="form-select" id="pais" required onchange="actualizarCiudades()">
+              <option selected disabled value="">Elige un país...</option>
+              <option value="BR">Brasil</option>
+              <option value="AR">Argentina</option>
+              <option value="MX">México</option>
+              <option value="CO">Colombia</option>
+              <option value="CL">Chile</option>
+              <option value="PE">Perú</option>
+              <option value="VE">Venezuela</option>
+              <option value="UY">Uruguay</option>
+              <option value="FR">Francia</option>
+              <option value="DE">Alemania</option>
+              <option value="ES">España</option>
+              <option value="IT">Italia</option>
+              <option value="PT">Portugal</option>
+              <option value="GB">Reino Unido</option>
+              <option value="JP">Japon</option>
+              <option value="CN">chin</option>
+              <option value="KR">corea</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label for="ciudad" class="form-label">Ciudad:</label>
+            <select class="form-select" id="ciudad" required>
+              <option selected disabled value="">Elige una ciudad...</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label for="emailPhone" class="form-label">Correo electrónico o número de teléfono:</label>
+            <input type="text" class="form-control" id="emailPhone" placeholder="email o número" required>
+          </div>
+          <div class="col-md-3">
+            <label for="contrasena" class="form-label">Contraseña:</label>
+            <input type="password" class="form-control" id="contrasena" required>
+          </div>
+          <div class="col-12">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="terminos" required>
+              <label class="form-check-label" for="terminos">
+                Acepto términos y condiciones
+              </label>
+            </div>
+          </div>
+          <div class="col-12">
+            <button type="button" class="btn btn-primary" id="nextButton">Siguiente</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+    <div class="row hidden" id="step2">
+      <div class="col-md-6 bg-dark py-5"
+        style="border-radius: 10px; margin-left: 25%; margin-right: 40%; margin-top: 5%;">
+        <h2>Elige tu foto de perfil</h2>
+        <form class="row g-3">
+          <div class="col-md-12">
+            <input type="file" id="profilePic" accept="image/*" class="form-control" required>
+          </div>
+          <div class="col-12">
+            <button type="button" class="btn btn-success" id="registerButton">Registrarse</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("nextButton").addEventListener("click", function (event) {
+      // Validar campos del formulario en el paso 1
+      const nombre = document.getElementById("nombre").value;
+      const apellidos = document.getElementById("apellidos").value;
+      const usuario = document.getElementById("usuario").value;
+      const pais = document.getElementById("pais").value;
+      const ciudad = document.getElementById("ciudad").value;
+      const emailPhone = document.getElementById("emailPhone").value;
+      const contrasena = document.getElementById("contrasena").value;
+      const terminos = document.getElementById("terminos").checked;
+
+      if (nombre.length < 3) {
+        alert("El nombre debe tener al menos 3 caracteres.");
+      } else if (apellidos.length < 3) {
+        alert("El apellido debe tener al menos 3 caracteres.");
+      } else if (usuario.length < 3) {
+        alert("El usuario debe tener al menos 3 caracteres.");
+      } else if (pais === "") {
+        alert("Por favor, selecciona tu país.");
+      } else if (ciudad === "") {
+        alert("Por favor, selecciona tu ciudad.");
+      } else if (emailPhone === "") {
+        alert("Por favor, ingresa tu correo electrónico o número de teléfono.");
+      } else if (contrasena.length < 6) {
+        alert("La contraseña debe tener al menos 6 caracteres.");
+      } else if (!terminos) {
+        alert("Debes aceptar los términos y condiciones.");
+      } else {
+        // Si todo es correcto, pasar al paso 2
+        document.getElementById("step1").classList.add("hidden");
+        document.getElementById("step2").classList.remove("hidden");
+      }
+    });
+
+    document.getElementById("registerButton").addEventListener("click", function () {
+      const nombre = document.getElementById("nombre").value;
+      const profilePic = document.getElementById("profilePic").files[0];
+
+      if (!profilePic) {
+        alert("Selecciona una foto de perfil.");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onloadend = function () {
+        localStorage.setItem("nombre", nombre);
+        localStorage.setItem("profilePic", reader.result);
+        window.location.href = "pantallainicial.html";
+      }
+      reader.readAsDataURL(profilePic);
+    });
+
+    // la parte en que se ejecuta el codigo con las ciuades
+    const ciudadesPorPais = {
+    "BR": ["São Paulo", "Río de Janeiro", "Belo Horizonte"],
+    "AR": ["Buenos Aires", "Córdoba", "Mendoza"],
+    "MX": ["Ciudad de México", "Guadalajara", "Monterrey"],
+    "CO": ["Bogotá", "Medellín", "Cali"],
+    "CL": ["Santiago", "Valparaíso", "Concepción"],
+    "PE": ["Lima", "Arequipa", "Cusco"],
+    "VE": ["Caracas", "Maracaibo", "Valencia"],
+    "UY": ["Montevideo", "Salto", "Colonia del Sacramento"],
+    "FR": ["París", "Marsella", "Lyon"],
+    "DE": ["Berlín", "Múnich", "Fráncfort"],
+    "ES": ["Madrid", "Barcelona", "Valencia"],
+    "IT": ["Roma", "Milán", "Nápoles"],
+    "PT": ["Lisboa", "Oporto", "Coímbra"],
+    "GB": ["Londres", "Edimburgo", "Mánchester"], 
+    "CN": ["Pekín", "Shanghái", "Shenzhen"],
+    "JP": ["Tokio", "Osaka", "Kioto"],       
+    "KR": ["Seúl", "Busan", "Incheon"]      
+};
+
+
+    function actualizarCiudades() {
+      const paisSelect = document.getElementById("pais");
+      const ciudadSelect = document.getElementById("ciudad");
+      const paisSeleccionado = paisSelect.value;
+
+      // Limpiar ciudades
+      ciudadSelect.innerHTML = '<option selected disabled value="">Elige una ciudad...</option>';
+
+      // Agregar ciudades correspondientes
+      if (paisSeleccionado in ciudadesPorPais) {
+        const ciudades = ciudadesPorPais[paisSeleccionado];
+        ciudades.forEach(ciudad => {
+          const option = document.createElement("option");
+          option.value = ciudad;
+          option.textContent = ciudad;
+          ciudadSelect.appendChild(option);
+        });
+      }
+    }
+  </script>
+
+</body>
+
+</html>
