@@ -1,0 +1,148 @@
+ <!DOCTYPE html>
+    <html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cuestionario de Salud Mental</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <style>
+            body {
+                
+                background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(176,144,157,1) 61%, rgba(128,120,121,1) 100%, rgba(148,187,233,1) 100%);
+                font-family: Arial, sans-serif;
+                padding: 20px;
+            }
+
+            h1 {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+            .question {
+                margin: 20px 0;
+                width: 800px;
+            }
+
+            .score-table {
+                margin-top: 40px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <center>
+        <h1>Cuestionario de Salud Mental</h1>
+    
+        <div class="score-table"></div>
+            <h2>Tabla de Puntajes</h2>
+            <br>
+            <br>
+            
+        
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Respuesta</th>
+                        <th>Puntaje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nunca</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>Rara vez</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>A veces</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>A menudo</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>Siempre</td>
+                        <td>4</td>
+                    </tr>
+                </tbody>
+            </table>
+        <form>
+            <div class="question"><label>1. Me he sentido triste o deprimido/a sin motivo aparente.</label><br><select class="form-control">
+                    <option value="0">Nunca</option>
+                    <option value="1">Rara vez</option>
+                    <option value="2">A veces</option>
+                    <option value="3">A menudo</option>
+                    <option value="4">Siempre</option>
+                </select></div>
+            <div class="question"><label>2. Me he sentido ansioso/a o nervioso/a.</label><br><select class="form-control">
+                    <option value="0">Nunca</option>
+                    <option value="1">Rara vez</option>
+                    <option value="2">A veces</option>
+                    <option value="3">A menudo</option>
+                    <option value="4">Siempre</option>
+                </select></div>
+            <div class="question"><label>3. He tenido problemas para dormir o he dormido demasiado.</label><br><select class="form-control">
+                    <option value="0">Nunca</option>
+                    <option value="1">Rara vez</option>
+                    <option value="2">A veces</option>
+                    <option value="3">A menudo</option>
+                    <option value="4">Siempre</option>
+                </select></div>
+            <div class="question"><label>4. Me he sentido fatigado/a o sin energía.</label><br><select class="form-control">
+                    <option value="0">Nunca</option>
+                    <option value="1">Rara vez</option>
+                    <option value="2">A veces</option>
+                    <option value="3">A menudo</option>
+                    <option value="4">Siempre</option>
+                </select></div>
+            <div class="question"><label>5. He perdido interés en actividades que solía disfrutar.</label><br><select class="form-control">
+                    <option value="0">Nunca</option>
+                    <option value="1">Rara vez</option>
+                    <option value="2">A veces</option>
+                    <option value="3">A menudo</option>
+                    <option value="4">Siempre</option>
+                </select></div>
+            <div class="question"><label>6. Me he sentido inútil o culpable.</label><br><select class="form-control">
+                    <option value="0">Nunca</option>
+                    <option value="1">Rara vez</option>
+                    <option value="2">A veces</option>
+                    <option value="3">A menudo</option>
+                    <option value="4">Siempre</option>
+                </select></div>
+            <div class="question"><label>7. He tenido dificultades para concentrarme o tomar decisiones.</label><br><select class="form-control">
+                    <option value="0">Nunca</option>
+                    <option value="1">Rara vez</option>
+                    <option value="2">A veces</option>
+                    <option value="3">A menudo</option>
+                    <option value="4">Siempre</option>
+                </select></div>
+            <div class="question"><label>8. He experimentado cambios en mi apetito o peso sin estar haciendo dieta.</label><br><select class="form-control">
+                    <option value="0">Nunca</option>
+                    <option value="1">Rara vez</option>
+                    <option value="2">A veces</option>
+                    <option value="3">A menudo</option>
+                    <option value="4">Siempre</option>
+                </select></div>
+            <div class="question"><label>9. Me he sentido inquieto/a o incapaz de quedarme quieto/a.</label><br><select class="form-control">
+                    <option value="0">Nunca</option>
+                    <option value="1">Rara vez</option>
+                    <option value="2">A veces</option>
+                    <option value="3">A menudo</option>
+                    <option value="4">Siempre</option>
+                </select></div>
+            <div class="question"><label>10. He tenido pensamientos de autolesión o suicidio.</label><br><select class="form-control">
+                    <option value="0">Nunca</option>
+                    <option value="1">Rara vez</option>
+                    <option value="2">A veces</option>
+                    <option value="3">A menudo</option>
+                    <option value="4">Siempre</option>
+                </select></div><button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </center>
+    </body>
+
+    </html>

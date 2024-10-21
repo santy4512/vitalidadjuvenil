@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario de Hábitos Alimenticios</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: rgb(238,174,202);
+background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(172,73,247,1) 63%, rgba(128,120,121,1) 100%, rgba(148,187,233,1) 100%);
+        }
+
+        h1 {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .question {
+            margin-top: 20px;
+        }
+
+        .result-table {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Cuestionario de Hábitos Alimenticios</h1>
+        <form id="quizForm">
+            <div class="question"><label>1. Como al menos cinco porciones de frutas y verduras al
+                    día.</label><br><select class="form-control" name="q1">
+                    <option value="0">Nunca</option>
+                    <option value="1">Rara vez</option>
+                    <option value="2">A veces</option>
+                    <option value="3">A menudo</option>
+                    <option value="4">Siempre</option>
+                </select></div>
+            <div class="question"><label>2. Bebo al menos 8 vasos de agua al día.</label><br><select
+                    class="form-control" name="q2">
+                    <option value="0">Nunca</option>
+                    <option value="1">Rara vez</option>
+                    <option value="2">A veces</option>
+                    <option value="3">A menudo</option>
+                    <option value="4">Siempre</option>
+                </select></div>
+            <div class="question"><label>3. Evito el consumo excesivo de alimentos procesados y
+                    azucarados.</label><br><select class="form-control" name="q3">
+                    <option value="0">Nunca</option>
+                    <option value="1">Rara vez</option>
+                    <option value="2">A veces</option>
+                    <option value="3">A menudo</option>
+                    <option value="4">Siempre</option>
+                </select></div>
+            <div class="question"><label>4. Incluyo fuentes de proteína magra en mis comidas (pollo, pescado, legumbres, etc.)..</label><br><select
+                    class="form-control" name="q2">
+                    <option value="0">Nunca</option>
+                    <option value="1">Rara vez</option>
+                    <option value="2">A veces</option>
+                    <option value="3">A menudo</option>
+                    <option value="4">Siempre</option>
+                </select></div>
+            <div class="question"><label>5. Hago tres comidas principales y dos meriendas saludables al día.</label><br><select
+                    class="form-control" name="q2">
+                    <option value="0">Nunca</option>
+                    <option value="1">Rara vez</option>
+                    <option value="2">A veces</option>
+                    <option value="3">A menudo</option>
+                    <option value="4">Siempre</option>
+                </select></div>
+                <div class="question"><label>6. Leo las etiquetas nutricionales antes de comprar alimentos.</label><br><select
+                    class="form-control" name="q2">
+                    <option value="0">Nunca</option>
+                    <option value="1">Rara vez</option>
+                    <option value="2">A veces</option>
+                    <option value="3">A menudo</option>
+                    <option value="4">Siempre</option>
+                </select></div>
+                <div class="question"><label>7.  Evito comer en exceso o por razones emocionales.</label><br><select
+                    class="form-control" name="q2">
+                    <option value="0">Nunca</option>
+                    <option value="1">Rara vez</option>
+                    <option value="2">A veces</option>
+                    <option value="3">A menudo</option>
+                    <option value="4">Siempre</option>
+                </select></div>
+                <div class="question"><label>8. Elijo carbohidratos complejos (integrales) sobre carbohidratos refinados.</label><br><select
+                    class="form-control" name="q2">
+                    <option value="0">Nunca</option>
+                    <option value="1">Rara vez</option>
+                    <option value="2">A veces</option>
+                    <option value="3">A menudo</option>
+                    <option value="4">Siempre</option>
+                </select></div>
+                <div class="question"><label>9. Limito el consumo de grasas saturadas y trans.</label><br><select
+                    class="form-control" name="q2">
+                    <option value="0">Nunca</option>
+                    <option value="1">Rara vez</option>
+                    <option value="2">A veces</option>
+                    <option value="3">A menudo</option>
+                    <option value="4">Siempre</option>
+                </select></div>
+                <div class="question"><label>10. Evito el consumo excesivo de sal y alimentos con alto contenido de sodio.</label><br><select
+                    class="form-control" name="q2">
+                    <option value="0">Nunca</option>
+                    <option value="1">Rara vez</option>
+                    <option value="2">A veces</option>
+                    <option value="3">A menudo</option>
+                    <option value="4">Siempre</option>
+                </select></div>
+                <div class="question"><label>11.Incluyo una variedad de alimentos para asegurar una dieta equilibrada.</label><br><select
+                    class="form-control" name="q2">
+                    <option value="0">Nunca</option>
+                    <option value="1">Rara vez</option>
+                    <option value="2">A veces</option>
+                    <option value="3">A menudo</option>
+                    <option value="4">Siempre</option>
+                </select></div>
+                <div class="question"><label>12. Planeo mis comidas con anticipación para asegurarme de comer saludablemente.</label><br><select
+                    class="form-control" name="q2">
+                    <option value="0">Nunca</option>
+                    <option value="1">Rara vez</option>
+                    <option value="2">A veces</option>
+                    <option value="3">A menudo</option>
+                    <option value="4">Siempre</option>
+                </select></div>
+            
+        </form>
+        <br>
+        <br>
+        <br>
+        <button
+                type="button" class="btn btn-primary" onclick="calcularPuntaje()">Enviar</button>
+        <div class="result-table">
+            <h3>Resultados</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Pregunta</th>
+                        <th>Puntaje</th>
+                    </tr>
+                </thead>
+                <tbody id="resultBody"><!-- Los resultados se llenarán aquí --></tbody>
+            </table>
+            <p id="totalScore"></p>
+        </div>
+    </div>
+
+    <script>function calcularPuntaje() { const form = document.getElementById('quizForm'); const resultBody = document.getElementById('resultBody'); const totalScore = document.getElementById('totalScore'); resultBody.innerHTML = ''; let total = 0; for (let i = 1; i <= 12; i++) { const valor = parseInt(form['q' + i].value); total += valor; const row = `<tr><td>${form['q' + i].previousElementSibling.innerText}</td><td>${valor}</td></tr>`; resultBody.innerHTML += row; } totalScore.innerText = 'Puntaje Total: ' + total; }  
+    </script>
+
+</body>
+
+</html>

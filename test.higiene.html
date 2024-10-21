@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Cuestionario de Higiene</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: rgb(238,174,202);
+            background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(73,247,247,1) 63%, rgba(128,120,121,1) 100%, rgba(148,187,233,1) 100%);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .question {
+            margin-bottom: 15px;
+        }
+
+        .question label {
+            display: block;
+            margin: 5px 0;
+        }
+
+        .result-table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        .result-table th,
+        .result-table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .result-table th {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Cuestionario de Higiene Personal</h1>
+        <form id="hygieneForm">
+            <div class="question"><label>1. ¿Con qué frecuencia te lavas las manos?</label><label><input type="radio" name="q1" value="3"> a) Antes de comer, después de usar el baño y siempre que estén sucias.</label><label><input type="radio" name="q1" value="2"> b) Solo antes de comer.</label><label><input type="radio" name="q1" value="1"> c) Rara vez me lavo las manos.</label></div>
+            <div class="question"><label>2. ¿Cuántas veces al día te cepillas los dientes?</label><label><input type="radio" name="q2" value="3"> a) Al menos dos veces al día.</label><label><input type="radio" name="q2" value="2"> b) Una vez al día.</label><label><input type="radio" name="q2" value="1"> c) Solo cuando lo recuerdo.</label></div>
+            <div class="question"><label>3. ¿Con qué frecuencia te duchas o te bañas?</label><label><input type="radio" name="q3" value="3"> a) Todos los días.</label><label><input type="radio" name="q3" value="2"> b) Cada dos o tres días.</label><label><input type="radio" name="q3" value="1"> c) Una vez a la semana o menos.</label></div>
+            <div class="question"><label>4. ¿Lavas tu cabello regularmente?</label><label><input type="radio" name="q4" value="3"> a) Sí, lo lavo al menos dos o tres veces por semana.</label><label><input type="radio" name="q4" value="2"> b) Lo lavo una vez a la semana.</label><label><input type="radio" name="q4" value="1"> c) Rara vez lavo mi cabello.</label></div>
+            <div class="question"><label>5. ¿Con qué frecuencia cambias tu ropa interior?</label><label><input type="radio" name="q5" value="3"> a) Todos los días.</label><label><input type="radio" name="q5" value="2"> b) Cada dos o tres días.</label><label><input type="radio" name="q5" value="1"> c) Una vez a la semana o menos.</label></div>
+            <div class="question"><label>6. ¿Utilizas desodorante o antitranspirante diariamente?</label><label><input type="radio" name="q6" value="3"> a) Sí, todos los días.</label><label><input type="radio" name="q6" value="2"> b) Solo en ocasiones especiales.</label><label><input type="radio" name="q6" value="1"> c) No uso desodorante ni antitranspirante.</label></div>
+            <div class="question"><label>7. ¿Con qué frecuencia cortas y limpias tus uñas?</label><label><input type="radio" name="q7" value="3"> a) Cada semana.</label><label><input type="radio" name="q7" value="2"> b) Cada dos o tres semanas.</label><label><input type="radio" name="q7" value="1"> c) Rara vez me ocupo de mis uñas.</label></div>
+            <div class="question"><label>8. ¿Lavas tus manos después de tocar animales?</label><label><input type="radio" name="q8" value="3"> a) Siempre.</label><label><input type="radio" name="q8" value="2"> b) A veces.</label><label><input type="radio" name="q8" value="1"> c) Nunca.</label></div>
+            <div class="question"><label>9. ¿Qué tipo de jabón utilizas para lavarte las manos?</label><label><input type="radio" name="q9" value="3"> a) Jabón líquido o en barra con propiedades antibacterianas.</label><label><input type="radio" name="q9" value="2"> b) Cualquier jabón que encuentre.</label><label><input type="radio" name="q9" value="1"> c) No uso jabón regularmente.</label></div>
+            <div class="question"><label>10. ¿Utilizas protector solar cuando estás al aire libre?</label><label><input type="radio" name="q10" value="3"> a) Sí, siempre que voy a estar al sol.</label><label><input type="radio" name="q10" value="2"> b) Solo en días muy soleados.</label><label><input type="radio" name="q10" value="1"> c) Nunca uso protector solar.</label></div><button type="button" onclick="calcularPuntaje()">Calcular Puntaje</button>
+        </form>
+        <table class="result-table" id="resultTable" style="display:none;">
+            <thead>
+                <tr>
+                    <th>Rango de Puntaje</th>
+                    <th>Resultado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>30-25</td>
+                    <td>Excelente higiene</td>
+                </tr>
+                <tr>
+                    <td>24-20</td>
+                    <td>Buena higiene</td>
+                </tr>
+                <tr>
+                    <td>19-15</td>
+                    <td>Regular higiene</td>
+                </tr>
+                <tr>
+                    <td>14-10</td>
+                    <td>Pobre higiene</td>
+                </tr>
+                <tr>
+                    <td>9-0</td>
+                    <td>Necesitas mejorar tu higiene</td>
+                </tr>
+            </tbody>
+        </table>
+        <p id="resultadoTexto" style="text-align:center; margin-top:20px;"></p>
+    </div>
+<center>
+    <script>
+        function calcularPuntaje() {
+            let puntaje = 0;
+            for (let i = 1; i <= 10; i++) {
+                const respuesta = document.querySelector(`input[name="q${i}"]:checked`);
+                if (respuesta) {
+                    puntaje += parseInt(respuesta.value);
+                }
+            }
+            document.getElementById("resultTable").style.display = "table";
+            document.getElementById("resultadoTexto").innerText = `Tu puntaje es: ${puntaje}`;
+        }
+    </script>
+</center>
+</body>
+
+</html>
